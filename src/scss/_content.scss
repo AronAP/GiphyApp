@@ -47,7 +47,6 @@
 
 .gif {
 
-
   &__figure {
     text-align: center;
   }
@@ -90,7 +89,6 @@
   }
 
   &__info {
-    // display: flex;
     display: none;
     justify-content: center;
     flex-direction: column;
@@ -122,5 +120,4 @@
       cursor: pointer;
     }
   }
-
 }

@@ -79,7 +79,7 @@ function createGifsElem(elem) {
               <button class="gif__info-button">i</button>
               <div class="gif__info">
                 <div class="gif__size">${elem.images.original.width}x${elem.images.original.height}</div>
-                <button class="gif__button" onclick="window.open('${elem.bitly_url}');" target="_blank">Original</button>
+                <button class="gif__button" onclick="window.open('${elem.url}');" target="_blank">Original</button>
               </div>
   `;
 
@@ -181,3 +181,6 @@ btnRefresh.addEventListener('click', () => {
 
   searchGifs(url);
 });
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!! Баг з пустим значенням

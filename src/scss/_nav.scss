@@ -4,6 +4,7 @@
   &__items {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     flex-basis: 50%;
   }
 
@@ -16,7 +17,7 @@
   &__input {
     border: 1px solid $theme-color;
     padding: .3rem .5rem;
-    width: 60%;
+    width: 80%;
     margin-right: 1rem;
     background-color: $sub-color;
     color: $theme-color;
@@ -38,5 +39,4 @@
       cursor: pointer;
     }
   }
-
 }
