@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GiphyApp</title>
+
+  <link rel="stylesheet" href="css/style.min.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+  <div class="progress-bar done"></div>
+
+  <header class="header">
+    <h1 class="header__name">GiphyApp</h1>
+  </header>
+
+  <section class="nav">
+    <div class="container">
+      <div class="nav__items">
+        <form action="#" class="nav__form">
+          <input type="text" class="nav__input" placeholder="What are you searching for?">
+          <input type="submit" class="nav__search nav__button" value="Find">
+        </form>
+        <button class="nav__refresh nav__button">Refresh</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+
+    <div class="content__loader hide">
+      <img src="loading.svg" alt="load">
+    </div>
+
+    <div class="container">
+      <div class="content__out"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <h2 class="footer__name">
+      Artem Prydybailo
+    </h2>
+  </footer>
+
+</body>
+
+</html>

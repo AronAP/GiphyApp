@@ -11,6 +11,10 @@ const progressBar = document.querySelector('.progress-bar');
 
 let requestList = [];
 
+/**
+ * Gets a input value and returns it to its normal form.
+ *
+ */
 function getInputValue() {
   let val = input.value.trim();
   let newVal = '';
@@ -29,6 +33,12 @@ function getInputValue() {
   }
 }
 
+/**
+ * Creates a link to the GIF.
+ *
+ * @param {Number} offset - the number of GIFs to skip.
+ * @returns createdUrl - link to the GIF.
+ */
 function createUrl(offset) {
   getInputValue();
 
@@ -44,6 +54,12 @@ function createUrl(offset) {
 }
 
 
+/**
+ * Crops GIF names.
+ *
+ * @param {*} title - name of the GIF.
+ * @returns title - cropped name GIF.
+ */
 function trimGifsName(title) {
   let str = '';
 
@@ -62,6 +78,11 @@ function trimGifsName(title) {
   return title;
 }
 
+/**
+ * Creates a card with a GIF and displays it.
+ *
+ * @param {*} elem - object with a GIF.
+ */
 function createGifsElem(elem) {
 
   let title = trimGifsName(elem.title);
@@ -86,23 +107,45 @@ function createGifsElem(elem) {
   out.insertAdjacentElement('beforeend', gif);
 }
 
+/**
+ * Shows GIF information.
+ *
+ * @param {*} elem - GIF.
+ */
 function showInfo(elem) {
   elem.style.display = 'flex';
 }
 
+/**
+ * Hides GIF information.
+ *
+ * @param {*} elem - GIF.
+ */
 function hideInfo(elem) {
   elem.style.display = 'none';
 }
 
+/**
+ * Shows the preloader of a GIFs.
+ *
+ */
 function showLoader() {
   loader.classList.remove('hide');
 }
 
+/**
+ * Hides the preloader of a GIFs.
+ *
+ */
 function hideLoader() {
   loader.classList.add('hide');
-
 }
 
+/**
+ * Looking for gifs.
+ *
+ * @param {*} url - address GIFs.
+ */
 function searchGifs(url) {
 
   fetch(url)
@@ -138,7 +181,6 @@ function searchGifs(url) {
           progressBar.classList.remove('done');
           progressBar.style.width = `${( ((100 / totalImagesCount) * loadedImagesCount) << 0)}%`;
 
-
           if (loadedImagesCount === totalImagesCount) {
             progressBar.classList.add('done');
             hideLoader();
@@ -146,6 +188,7 @@ function searchGifs(url) {
         }
       });
 
+      // Hang up click on the Info button of all GIFs.
       const btnInfo = document.querySelectorAll('.gif__info-button');
 
       btnInfo.forEach(btn => {
