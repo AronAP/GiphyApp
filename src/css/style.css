@@ -93,6 +93,12 @@ body {
   cursor: pointer;
 }
 
+.nav__refresh:disabled {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  cursor: not-allowed;
+}
+
 .header {
   display: -webkit-box;
   display: -webkit-flex;
@@ -384,5 +390,56 @@ body {
 
   .nav__input {
     margin-bottom: 1rem;
+  }
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background-color: #2c3e50;
+  -webkit-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
+  -webkit-animation: pulse 3s ease-in-out infinite;
+  animation: pulse 3s ease-in-out infinite;
+  z-index: 10;
+  visibility: visible;
+}
+
+.progress-bar.done {
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
+  visibility: hidden;
+  width: 0 !important;
+}
+
+@-webkit-keyframes pulse {
+  to {
+    background-color: #2c3e50;
+  }
+
+  50% {
+    background-color: #698bac;
+  }
+
+  from {
+    background-color: #2c3e50;
+  }
+}
+
+@keyframes pulse {
+  to {
+    background-color: #2c3e50;
+  }
+
+  50% {
+    background-color: #698bac;
+  }
+
+  from {
+    background-color: #2c3e50;
   }
 }

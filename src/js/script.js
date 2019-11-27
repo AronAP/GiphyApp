@@ -7,6 +7,7 @@ const btnFind = document.querySelector('.nav__search');
 const btnRefresh = document.querySelector('.nav__refresh');
 const out = document.querySelector('.content__out');
 const loader = document.querySelector('.content__loader');
+const progressBar = document.querySelector('.progress-bar');
 
 let requestList = [];
 
@@ -25,18 +26,17 @@ function getInputValue() {
 
   if (newVal != '') {
     requestList.unshift(newVal);
-    console.log('🙂: requestList', requestList);
-  } else {
-    return;
   }
-
-  // return newVal;
 }
 
 function createUrl(offset) {
-  // const value = getInputValue();
   getInputValue();
+
   const value = requestList[0];
+
+  if (typeof value == 'undefined') {
+    return;
+  }
 
   let createdUrl = `https://${URL_GIFS}?api_key=${API_KEY}&q=${value}&limit=${LIMIT_STICKERS_ON_PAGE}&offset=${offset}`
 
@@ -95,12 +95,10 @@ function hideInfo(elem) {
 }
 
 function showLoader() {
-  console.log(1);
   loader.classList.remove('hide');
 }
 
 function hideLoader() {
-  console.log(0);
   loader.classList.add('hide');
 
 }
@@ -110,17 +108,22 @@ function searchGifs(url) {
   fetch(url)
     .then(response => response.json())
     .then(content => {
-      console.log(content.data);
-      console.log(content.meta);
-      console.log(content.pagination);
 
       if (content.meta.status != 200) {
         return;
       }
+
+      if (content.pagination.total_count < content.pagination.offset) {
+        btnRefresh.setAttribute('disabled', '');
+        return;
+      }
+
       out.innerHTML = '';
+      btnRefresh.removeAttribute('disabled');
       showLoader();
 
-      let loadedImageCount = 0;
+      let loadedImagesCount = 0;
+      let totalImagesCount = content.data.length;
 
       content.data.forEach(elem => {
         createGifsElem(elem);
@@ -130,11 +133,14 @@ function searchGifs(url) {
 
       img.forEach(image => {
         image.onload = function () {
-          loadedImageCount++;
-          console.log('🙂: loadedImageCount', loadedImageCount);
+          loadedImagesCount++;
 
-          if (loadedImageCount === content.data.length) {
-            console.log(101);
+          progressBar.classList.remove('done');
+          progressBar.style.width = `${( ((100 / totalImagesCount) * loadedImagesCount) << 0)}%`;
+
+
+          if (loadedImagesCount === totalImagesCount) {
+            progressBar.classList.add('done');
             hideLoader();
           }
         }
@@ -181,6 +187,3 @@ btnRefresh.addEventListener('click', () => {
 
   searchGifs(url);
 });
-
-
-// !!!!!!!!!!!!!!!!!!!!!!!! Баг з пустим значенням

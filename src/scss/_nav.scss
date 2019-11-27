@@ -39,4 +39,13 @@
       cursor: pointer;
     }
   }
+
+  &__refresh {
+
+    &:disabled {
+      background-color: $sub-color;
+      color: $theme-color;
+      cursor: not-allowed;
+    }
+  }
 }
