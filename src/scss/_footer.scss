@@ -1,0 +1,16 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  border-top: 2px solid $theme-color;
+  box-shadow: 0 -3px 10px rgba($theme-color, 0.4);
+  background-color: $sub-color;
+  z-index: 2;
+
+  &__name {
+    font-size: 1.5rem;
+    color: $theme-color;
+  }
+}

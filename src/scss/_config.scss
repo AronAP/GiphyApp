@@ -5,9 +5,22 @@
   box-sizing: border-box;
   font-size: 20px;
   outline: none;
+
+  &::selection {
+    background: $theme-color;
+    color: $sub-color;
+  }
+}
+
+body {
+  background-color: $sub-color;
 }
 
 .container {
   width: 1170px;
   margin: 0 auto;
+}
+
+.hide {
+    display: none;
 }

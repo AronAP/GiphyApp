@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 2px solid $theme-color;
+  box-shadow: 0 3px 10px rgba($theme-color, 0.4);
+  background-color: $sub-color;
+
+  &__name {
+    font-size: 1.5rem;
+    color: $theme-color;
+  }
+}

@@ -1,0 +1,42 @@
+.nav {
+  margin: 2rem 0;
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 50%;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: flex-start;
+    flex-basis: 50%;
+  }
+
+  &__input {
+    border: 1px solid $theme-color;
+    padding: .3rem .5rem;
+    width: 60%;
+    margin-right: 1rem;
+    background-color: $sub-color;
+    color: $theme-color;
+
+    &:hover {
+      border-color: darken($theme-color, 10%);
+    }
+  }
+
+  &__button {
+    padding: .3rem 1.5rem;
+    border: 1px solid $theme-color;
+    background-color: $theme-color;
+    color: $sub-color;
+
+    &:hover {
+      background-color: lighten($theme-color, 5%);
+      border-color: lighten($theme-color, 5%);
+      cursor: pointer;
+    }
+  }
+
+}
